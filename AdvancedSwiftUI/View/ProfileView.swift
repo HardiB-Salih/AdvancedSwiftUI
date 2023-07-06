@@ -1,23 +1,20 @@
 //
-//  ContentView.swift
+//  ProfileView.swift
 //  AdvancedSwiftUI
 //
 //  Created by HardiB.Salih on 7/6/23.
 //
 
 import SwiftUI
-import CoreData
 
-struct ContentView: View {
+struct ProfileView: View {
     var body: some View {
-        SignUPView()
+        Text("ProfileView")
     }
 }
-struct ContentView_Previews: PreviewProvider {
+
+struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ProfileView()
     }
 }
-
-
-
