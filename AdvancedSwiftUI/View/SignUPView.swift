@@ -22,6 +22,10 @@ struct SignUPView: View {
     @State private var rotationAngle = 0.0
     @State private var signInWithAppleObject = SignInWithAppleObject()
     
+    @State private var fadeToggle: Bool = true
+
+
+    
     private let generator = UISelectionFeedbackGenerator()
     
     var body: some View {
@@ -30,6 +34,11 @@ struct SignUPView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .edgesIgnoringSafeArea(.all)
+                .opacity(fadeToggle ? 1.0 : 0.0)
+            
+            Color("secondaryBackground")
+                .edgesIgnoringSafeArea(.all)
+                .opacity(fadeToggle ? 0.0 : 1.0)
             
             VStack {
                 VStack (alignment: .leading, spacing: 16) {
@@ -53,7 +62,7 @@ struct SignUPView: View {
                     signInButtonContent
                     if !signupToggle {
                         Button(action: {
-                            print("Send reset password email")
+                            authViewModel.sendPasswordResetEmail(email: email)
                         }, label: {
                             HStack(spacing: 4) {
                                 Text("Forgot password?")
@@ -66,21 +75,18 @@ struct SignUPView: View {
                         
                         Button(action: {
                             signInWithAppleObject.signInWithApple()
-                            }, label: {
-                                SignInWithAppleButton()
-                                    .frame(height: 50)
-                                    .cornerRadius(16)
-                            })
+                        }, label: {
+                            SignInWithAppleButton()
+                                .frame(height: 50)
+                                .cornerRadius(16)
+                        })
                     }
                     
                     
                     
                 }.padding(20)
-            }.rotation3DEffect(Angle(degrees: self.rotationAngle), axis: (x: 0.0, y: 1.0, z: 0.0))
-            
-            
-            
-            
+            }
+            .rotation3DEffect(Angle(degrees: self.rotationAngle), axis: (x: 0.0, y: 1.0, z: 0.0))
             .background(
                 RoundedRectangle(cornerRadius: 30)
                     .stroke(Color.white.opacity(0.2))
@@ -90,10 +96,14 @@ struct SignUPView: View {
             ).cornerRadius(30.0)
                 .padding(.horizontal)
                 .rotation3DEffect(Angle(degrees: self.rotationAngle), axis: (x: 0.0, y: 1.0, z: 0.0))
+                .alert(isPresented: $authViewModel.showAlertView) {
+                    Alert(title: Text(authViewModel.alertTitle), message: Text(authViewModel.alertMessage), dismissButton: .cancel())
+                }
+            
         }
-        //        .fullScreenCover(isPresented: $showProfileView) {
-        //            ProfileView()
-        //        }
+        .fullScreenCover(isPresented: $showProfileView) {
+            ProfileView()
+        }
     }
     
     
@@ -206,6 +216,16 @@ struct SignUPView: View {
     
     var signInButtonContent : some View {
         Button(action: {
+            withAnimation(.easeInOut(duration: 0.35)) {
+                    fadeToggle.toggle()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                        withAnimation(.easeInOut(duration: 0.35)) {
+                            self.fadeToggle.toggle()
+                        }
+                    }
+                }
+            
+            
             withAnimation(.easeInOut(duration: 0.7)){
                 signupToggle.toggle()
                 self.rotationAngle += 180
