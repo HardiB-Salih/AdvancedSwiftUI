@@ -13,6 +13,13 @@
 		D5B410E92A56937F00930B12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B410E82A56937F00930B12 /* Preview Assets.xcassets */; };
 		D5B410EB2A56937F00930B12 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B410EA2A56937F00930B12 /* Persistence.swift */; };
 		D5B410EE2A56937F00930B12 /* AdvancedSwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5B410EC2A56937F00930B12 /* AdvancedSwiftUI.xcdatamodeld */; };
+		D5B410F82A56941100930B12 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B410F62A56941100930B12 /* VisualEffectBlur.swift */; };
+		D5B410F92A56941100930B12 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B410F72A56941100930B12 /* ImagePicker.swift */; };
+		D5B410FC2A5698F500930B12 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B410FB2A5698F500930B12 /* Extentions.swift */; };
+		D5B410FF2A5699E700930B12 /* GradientText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B410FE2A5699E700930B12 /* GradientText.swift */; };
+		D5B411012A569CBC00930B12 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B411002A569CBC00930B12 /* GradientButton.swift */; };
+		D5B411032A569D8E00930B12 /* TextfieldIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B411022A569D8E00930B12 /* TextfieldIcon.swift */; };
+		D5B411052A56A6C900930B12 /* PasswordSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B411042A56A6C900930B12 /* PasswordSecureField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		D5B410EA2A56937F00930B12 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D5B410ED2A56937F00930B12 /* AdvancedSwiftUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AdvancedSwiftUI.xcdatamodel; sourceTree = "<group>"; };
 		D5B410EF2A56937F00930B12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5B410F62A56941100930B12 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		D5B410F72A56941100930B12 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D5B410FB2A5698F500930B12 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		D5B410FE2A5699E700930B12 /* GradientText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientText.swift; sourceTree = "<group>"; };
+		D5B411002A569CBC00930B12 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		D5B411022A569D8E00930B12 /* TextfieldIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldIcon.swift; sourceTree = "<group>"; };
+		D5B411042A56A6C900930B12 /* PasswordSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSecureField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,9 @@
 		D5B410E02A56937C00930B12 /* AdvancedSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				D5B410FD2A5699D400930B12 /* Components */,
+				D5B410FA2A5698DD00930B12 /* Utils */,
+				D5B410F52A56940100930B12 /* Helpers */,
 				D5B410E12A56937C00930B12 /* AdvancedSwiftUIApp.swift */,
 				D5B410E32A56937C00930B12 /* ContentView.swift */,
 				D5B410E52A56937F00930B12 /* Assets.xcassets */,
@@ -73,6 +90,34 @@
 				D5B410E82A56937F00930B12 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D5B410F52A56940100930B12 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D5B410F72A56941100930B12 /* ImagePicker.swift */,
+				D5B410F62A56941100930B12 /* VisualEffectBlur.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D5B410FA2A5698DD00930B12 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D5B410FB2A5698F500930B12 /* Extentions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D5B410FD2A5699D400930B12 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D5B410FE2A5699E700930B12 /* GradientText.swift */,
+				D5B411002A569CBC00930B12 /* GradientButton.swift */,
+				D5B411022A569D8E00930B12 /* TextfieldIcon.swift */,
+				D5B411042A56A6C900930B12 /* PasswordSecureField.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,10 +190,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5B410FF2A5699E700930B12 /* GradientText.swift in Sources */,
+				D5B410F82A56941100930B12 /* VisualEffectBlur.swift in Sources */,
 				D5B410EB2A56937F00930B12 /* Persistence.swift in Sources */,
 				D5B410EE2A56937F00930B12 /* AdvancedSwiftUI.xcdatamodeld in Sources */,
+				D5B411012A569CBC00930B12 /* GradientButton.swift in Sources */,
+				D5B410F92A56941100930B12 /* ImagePicker.swift in Sources */,
 				D5B410E42A56937C00930B12 /* ContentView.swift in Sources */,
 				D5B410E22A56937C00930B12 /* AdvancedSwiftUIApp.swift in Sources */,
+				D5B411052A56A6C900930B12 /* PasswordSecureField.swift in Sources */,
+				D5B411032A569D8E00930B12 /* TextfieldIcon.swift in Sources */,
+				D5B410FC2A5698F500930B12 /* Extentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
