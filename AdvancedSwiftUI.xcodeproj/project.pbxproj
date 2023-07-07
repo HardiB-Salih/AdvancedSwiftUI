@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D529F97F2A5751EF00B90C6B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D529F97E2A5751EF00B90C6B /* StoreKit.framework */; };
+		D529F9812A57543D00B90C6B /* InAppPurchaseNonConsumableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D529F9802A57543D00B90C6B /* InAppPurchaseNonConsumableHelper.swift */; };
+		D529F9832A575A2100B90C6B /* InAppPurchaseConsumableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D529F9822A575A2100B90C6B /* InAppPurchaseConsumableHelper.swift */; };
+		D529F9852A575C2700B90C6B /* InAppPurchaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D529F9842A575C2700B90C6B /* InAppPurchaseHelper.swift */; };
+		D529F9872A57FAD800B90C6B /* GradientProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D529F9862A57FAD800B90C6B /* GradientProfilePictureView.swift */; };
+		D529F9892A5805A700B90C6B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D529F9882A5805A700B90C6B /* SettingsView.swift */; };
+		D529F98B2A5806F300B90C6B /* GradientTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = D529F98A2A5806F200B90C6B /* GradientTextfield.swift */; };
 		D5B410E22A56937C00930B12 /* AdvancedSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B410E12A56937C00930B12 /* AdvancedSwiftUIApp.swift */; };
 		D5B410E42A56937C00930B12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B410E32A56937C00930B12 /* ContentView.swift */; };
 		D5B410E62A56937F00930B12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B410E52A56937F00930B12 /* Assets.xcassets */; };
@@ -30,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D529F97E2A5751EF00B90C6B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D529F9802A57543D00B90C6B /* InAppPurchaseNonConsumableHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseNonConsumableHelper.swift; sourceTree = "<group>"; };
+		D529F9822A575A2100B90C6B /* InAppPurchaseConsumableHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseConsumableHelper.swift; sourceTree = "<group>"; };
+		D529F9842A575C2700B90C6B /* InAppPurchaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseHelper.swift; sourceTree = "<group>"; };
+		D529F9862A57FAD800B90C6B /* GradientProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientProfilePictureView.swift; sourceTree = "<group>"; };
+		D529F9882A5805A700B90C6B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D529F98A2A5806F200B90C6B /* GradientTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextfield.swift; sourceTree = "<group>"; };
 		D5B410DE2A56937C00930B12 /* AdvancedSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvancedSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B410E12A56937C00930B12 /* AdvancedSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSwiftUIApp.swift; sourceTree = "<group>"; };
 		D5B410E32A56937C00930B12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,17 +74,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5B411082A56B52400930B12 /* FirebaseAuth in Frameworks */,
+				D529F97F2A5751EF00B90C6B /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D529F97D2A5751EF00B90C6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D529F97E2A5751EF00B90C6B /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D5B410D52A56937C00930B12 = {
 			isa = PBXGroup;
 			children = (
 				D5B410E02A56937C00930B12 /* AdvancedSwiftUI */,
 				D5B410DF2A56937C00930B12 /* Products */,
+				D529F97D2A5751EF00B90C6B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +161,8 @@
 				D5B411022A569D8E00930B12 /* TextfieldIcon.swift */,
 				D5B411042A56A6C900930B12 /* PasswordSecureField.swift */,
 				D5B411132A56D4E500930B12 /* SignInWithAppleButton.swift */,
+				D529F9862A57FAD800B90C6B /* GradientProfilePictureView.swift */,
+				D529F98A2A5806F200B90C6B /* GradientTextfield.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -145,6 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				D5B4110C2A56C09B00930B12 /* AuthViewModel.swift */,
+				D529F9802A57543D00B90C6B /* InAppPurchaseNonConsumableHelper.swift */,
+				D529F9822A575A2100B90C6B /* InAppPurchaseConsumableHelper.swift */,
+				D529F9842A575C2700B90C6B /* InAppPurchaseHelper.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -154,6 +183,7 @@
 			children = (
 				D5B4110F2A56CAE200930B12 /* ProfileView.swift */,
 				D5B411112A56CDAE00930B12 /* SignUPView.swift */,
+				D529F9882A5805A700B90C6B /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -235,21 +265,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D529F9892A5805A700B90C6B /* SettingsView.swift in Sources */,
 				D5B410FF2A5699E700930B12 /* GradientText.swift in Sources */,
 				D5B411102A56CAE200930B12 /* ProfileView.swift in Sources */,
+				D529F98B2A5806F300B90C6B /* GradientTextfield.swift in Sources */,
+				D529F9872A57FAD800B90C6B /* GradientProfilePictureView.swift in Sources */,
 				D5B410F82A56941100930B12 /* VisualEffectBlur.swift in Sources */,
 				D5B411172A56D62600930B12 /* SignInWithAppleObject.swift in Sources */,
 				D5B410EB2A56937F00930B12 /* Persistence.swift in Sources */,
 				D5B410EE2A56937F00930B12 /* AdvancedSwiftUI.xcdatamodeld in Sources */,
 				D5B411012A569CBC00930B12 /* GradientButton.swift in Sources */,
 				D5B410F92A56941100930B12 /* ImagePicker.swift in Sources */,
+				D529F9852A575C2700B90C6B /* InAppPurchaseHelper.swift in Sources */,
 				D5B410E42A56937C00930B12 /* ContentView.swift in Sources */,
 				D5B410E22A56937C00930B12 /* AdvancedSwiftUIApp.swift in Sources */,
 				D5B4110D2A56C09B00930B12 /* AuthViewModel.swift in Sources */,
+				D529F9812A57543D00B90C6B /* InAppPurchaseNonConsumableHelper.swift in Sources */,
 				D5B411142A56D4E500930B12 /* SignInWithAppleButton.swift in Sources */,
 				D5B411052A56A6C900930B12 /* PasswordSecureField.swift in Sources */,
 				D5B411032A569D8E00930B12 /* TextfieldIcon.swift in Sources */,
 				D5B411122A56CDAE00930B12 /* SignUPView.swift in Sources */,
+				D529F9832A575A2100B90C6B /* InAppPurchaseConsumableHelper.swift in Sources */,
 				D5B410FC2A5698F500930B12 /* Extentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +419,7 @@
 				DEVELOPMENT_TEAM = 3L4D8Z5WYW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AdvancedSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -413,6 +450,7 @@
 				DEVELOPMENT_TEAM = 3L4D8Z5WYW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AdvancedSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

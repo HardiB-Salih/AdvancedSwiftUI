@@ -24,6 +24,8 @@ struct SignUPView: View {
     
     @State private var fadeToggle: Bool = true
 
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Account.userSince, ascending: true)], animation: .default) private var savedAccounts: FetchedResults<Account>
 
     
     private let generator = UISelectionFeedbackGenerator()
@@ -111,7 +113,7 @@ struct SignUPView: View {
     
     var signUpContent: some View {
         HStack (spacing: 12.0) {
-            TextfieldIcon(iconName: "envelope.open.fill", currentlyEditing: $editingEmailTextfield)
+            TextfieldIcon(iconName: "envelope.open.fill", currentlyEditing: $editingEmailTextfield, passedImage: .constant(nil))
                 .scaleEffect(emailIconBounce ? 1.2 : 1.0)
             TextField("Email", text: $email) { isEditing in
                 editingEmailTextfield = isEditing
@@ -147,7 +149,7 @@ struct SignUPView: View {
     }
     var passwordContent: some View {
         HStack (spacing: 12.0) {
-            TextfieldIcon(iconName: "key.fill", currentlyEditing: $editingPasswordTextfield)
+            TextfieldIcon(iconName: "key.fill", currentlyEditing: $editingPasswordTextfield, passedImage: .constant(nil))
                 .scaleEffect(passwordIconBounce ? 1.2 : 1.0)
             PasswordSecureField(placeholder: "Password", text: $password) { isEditing in
                 editingPasswordTextfield = isEditing
@@ -201,8 +203,35 @@ struct SignUPView: View {
             
         }.onAppear {
             Auth.auth().addStateDidChangeListener { auth, user in
-                if user != nil {
-                    showProfileView.toggle()
+                if let currentUser = user {
+                    if savedAccounts.count == 0 {
+                        // Add data to Core Data
+                        
+                        let userDataToSave = Account(context: viewContext)
+                        userDataToSave.name = currentUser.displayName
+                        userDataToSave.bio = nil
+                        userDataToSave.userID = currentUser.uid
+                        userDataToSave.numberOfCertificates = 0
+                        userDataToSave.proMember = false
+                        userDataToSave.twitterHandle = nil
+                        userDataToSave.website = nil
+                        userDataToSave.profileImage = nil
+                        userDataToSave.userSince = Date()
+                        do {
+                            try viewContext.save()
+                            DispatchQueue.main.async {
+                                showProfileView.toggle()
+                            }
+                        } catch let error {
+                            print(error.localizedDescription)
+//                            alertTitle = "Could not create an account"
+//                            alertMessage = error.localizedDescription
+//                            showAlertView.toggle()
+                        }
+                        
+                    } else {
+                        showProfileView.toggle()
+                    }
                 }
             }
         }

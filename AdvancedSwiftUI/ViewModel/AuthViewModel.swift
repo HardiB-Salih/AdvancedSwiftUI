@@ -57,4 +57,16 @@ final class AuthViewModel: ObservableObject {
 //            print("Password reset email sent")
         }
     }
+    
+    func signout() {
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            self.alertTitle = "Uh-oh!"
+            self.alertMessage = error.localizedDescription
+            self.showAlertView.toggle()
+//            print(error.localizedDescription)
+            
+        }
+    }
 }
