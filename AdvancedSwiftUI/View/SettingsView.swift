@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import CoreData
+import FirebaseAuth
 
 struct SettingsView: View {
     @State private var editingNameTextfield = false
@@ -22,6 +24,15 @@ struct SettingsView: View {
     @State private var twitter = ""
     @State private var site = ""
     @State private var bio = ""
+    
+    @State private var showAlertView: Bool = false
+    @State private var alertTitle: String = ""
+    @State private var alertMessage: String = ""
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Account.userSince, ascending: true)], predicate: NSPredicate(format: "userID == %@", Auth.auth().currentUser?.uid ?? ""), animation: .default) private var savedAccounts: FetchedResults<Account>
+    @State private var currentAccount: Account?
+    
     private let generator = UISelectionFeedbackGenerator()
     
     @State private var showImagePicker = false
@@ -43,7 +54,7 @@ struct SettingsView: View {
                 // Choose Photo
                 Button {
                     self.showImagePicker = true
-//                    print("Show image picker")
+                    //                    print("Show image picker")
                 } label: {
                     HStack(spacing: 12) {
                         TextfieldIcon(iconName: "person.crop.circle", currentlyEditing: .constant(false), passedImage: $inputImage)
@@ -85,6 +96,25 @@ struct SettingsView: View {
                 GradientButton(buttonTitle: "Save Settings") {
                     // Save changes to Core Data
                     generator.selectionChanged()
+                    
+                    currentAccount?.name = self.name
+                        currentAccount?.bio = self.bio
+                        currentAccount?.twitterHandle = self.twitter
+                        currentAccount?.website = self.site
+                        currentAccount?.profileImage = self.inputImage?.pngData()
+                        do {
+                            try viewContext.save()
+                            // Present alert
+                                  alertTitle = "Settings Saved!"
+                                  alertMessage = "Your changes have been saved"
+                                  showAlertView.toggle()
+                            // Present alert
+                        } catch let error {
+                            // Present error
+                                   alertTitle = "Uh-oh!"
+                                   alertMessage = error.localizedDescription
+                                   showAlertView.toggle()
+                        }
                 }
                 Spacer()
             }.padding()
@@ -93,6 +123,18 @@ struct SettingsView: View {
             .sheet(isPresented: $showImagePicker) {
                 ImagePicker(image: $inputImage)
             }
+            .onAppear() {
+                if let currentAccount = savedAccounts.first {
+                    self.name = currentAccount.name ?? ""
+                    self.bio = currentAccount.bio ?? ""
+                    self.twitter = currentAccount.twitterHandle ?? ""
+                    self.site = currentAccount.website ?? ""
+                    self.inputImage = UIImage(data: currentAccount.profileImage ?? Data())
+                }
+            }
+            .alert(isPresented: $showAlertView, content: {
+                    Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .cancel())
+                })
     }
 }
 
